@@ -1,0 +1,60 @@
+---
+sidebar_position: 1
+description: Build bhaus-cli from source and verify it works.
+---
+
+# Installation
+
+## From source
+
+Build the CLI from source. You will need [Go](https://go.dev) 1.24 or newer and `git`.
+
+### Clone and build
+
+```bash
+git clone https://github.com/sjsone/bhaus-toolset.git
+cd bhaus-toolset
+go build -o bin/bhaus-cli ./cmd/cli
+```
+
+This produces a single `bhaus-cli` binary at `bin/bhaus-cli`. 
+Put it on your `PATH` or reference it with a relative path for the rest of this guide.
+
+### Verify it works
+
+```bash
+./bin/bhaus-cli help
+```
+
+```text
+bhaus-cli — tooling for the BHaus modelling language
+
+Parses .bhaus files into a typed AST. It drives everything built on top of
+that: the editor language server, linting, and target-language scaffolding.
+
+Usage:
+  bhaus-cli <command> [flags] [arguments]
+
+Commands:
+  ls          Run the language server over stdio (started by editors, not humans)
+  lint        Check a .bhaus file for problems
+  scaffold    Generate rough target-language source from .bhaus declarations
+  help        Show this message or "help <command>" for one command's details
+
+Examples:
+  # See what a command expects
+  bhaus-cli scaffold --help
+
+  # Generate Go from a model and print it to stdout
+  bhaus-cli scaffold go domain/user.bhaus
+
+  # Generate TypeScript for every .bhaus file into a directory tree
+  bhaus-cli scaffold typescript --out-dir ./gen domain/*.bhaus
+
+Scaffold languages: [go php typescript] (plus any YAML defs found in --template-dir).
+
+Run "bhaus-cli <command> --help" for flags, defaults, and per-command examples.
+```
+
+`ls` starts the language server over stdio. 
+The two commands you will use directly are `lint` and `scaffold`.

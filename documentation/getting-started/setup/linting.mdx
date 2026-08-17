@@ -1,0 +1,65 @@
+---
+sidebar_position: 2
+description: Check a .bhaus file for problems with bhaus-cli lint.
+---
+
+# Linting
+
+Run `lint` against the file from the previous page:
+
+```bash
+bhaus-cli lint user.bhaus
+```
+
+```text
+ok
+```
+
+A clean file just prints `ok`. 
+`lint` also loads any files pulled in with `INCLUDE` so cross-file references resolve, but it only reports diagnostics for the file you named.
+
+## Seeing it catch something
+
+Change the struct name to lowercase and reference a type that doesn't exist
+anywhere:
+
+```bhaus
+VERSION 0.1
+
+STRUCT Domain/Entity/user:
+    PUBLIC id: Integer
+    PUBLIC manager: Domain/Entity/Manager
+```
+
+```bash
+bhaus-cli lint broken.bhaus
+```
+
+```text
+broken.bhaus:3:8: warning: struct name "user" should start with an uppercase letter [naming]
+broken.bhaus:5:21: error: cannot resolve reference to "Domain/Entity/Manager" [unresolved-ref]
+
+1 error, 1 warning
+```
+
+`lint` exits with code `1` when it finds at least one **error**-severity
+diagnostic. Warnings alone exit with code `0`. So warnings will not fail a CI
+check on their own.
+
+## What gets checked
+
+| Rule | Catches |
+| --- | --- |
+| `syntax` | Parse errors or malformed declarations |
+| `unresolved-ref` | A type, `EXTENDS`, `IMPLEMENTS`, or C4 endpoint that names nothing |
+| `duplicate-decl` | A declaration whose full name is declared more than once |
+| `naming` | Type names should be `Uppercase`; function/method names `lowercase` |
+| `structure` | `VERSION` must be present, and be the first declaration |
+| `unknown-type` | A type annotation uses the built-in `Unknown` type |
+
+Pass `--format json` for machine-readable output. Use this to connect `lint`
+to an editor or a CI step:
+
+```bash
+bhaus-cli lint --format json user.bhaus
+```

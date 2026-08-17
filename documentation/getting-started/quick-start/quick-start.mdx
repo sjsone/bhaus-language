@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+description: A quick tour of BHaus. It covers what it is, what it looks like, and how to get started in under five minutes.
+---
+
+import Link from '@docusaurus/Link';
+
+# Quick Start Guide
+
+Welcome to BHaus. It is a textual design language. Humans write it. Text-
+generating models follow it.
+
+This guide walks through the essentials in about five minutes:
+
+1. **Install** - build `bhaus-cli` from source
+2. **First file** - declare types and contracts
+3. **Lint** - verify correctness
+4. **Generate** - scaffold real source code
+5. **Architecture** - model a system with the C4 model
+
+## What is BHaus?
+
+BHaus is a **design language**, not a programming language. A `.bhaus` file
+declares types, contracts, and architecture. That is all. It has no control
+flow. No value expressions. No arithmetic. It is a specification. A human
+writes it. An AI (or a teammate) reads it before implementing.
+
+Here's a minimal example:
+
+```bhaus
+VERSION 0.1
+
+STRUCT Domain/Entity/User:
+    PUBLIC id: Integer
+    PUBLIC name: String
+    PUBLIC email: String
+
+PROTOCOL Domain/Repository:
+    PUBLIC findById(Integer): ?Domain/Entity/User
+    PUBLIC save(Domain/Entity/User): Boolean
+```
