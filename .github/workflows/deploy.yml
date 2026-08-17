@@ -7,9 +7,6 @@ on:
 
 jobs:
   build:
-    defaults:
-      run:
-        working-directory: documentation/static_site
     name: Build Docusaurus
     runs-on: ubuntu-latest
     steps:
@@ -23,8 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: documentation/static_site
       - name: Build website
         run: npm run build
+        working-directory: documentation/static_site
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
