@@ -1,0 +1,12 @@
+VERSION 0.1
+
+STRUCT UUID:
+    PRIVATE raw: String
+
+PROTOCOL Base/Entity:
+    PUBLIC getIdentifier(): UUID
+    PUBLIC value: String
+
+PROTOCOL Base/Bla:
+    PUBLIC rec: Base/Entity
+    PUBLIC toLowerCase(String): String

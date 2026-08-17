@@ -1,0 +1,197 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/refs/heads/master/tmlanguage.json",
+  "name": "BHaus",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#functional-intent"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#version"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#c4-type-declaration"
+    },
+    {
+      "include": "#c4-connection"
+    },
+    {
+      "include": "#storage-type"
+    },
+    {
+      "include": "#type-declaration"
+    },
+    {
+      "include": "#type-reference"
+    },
+    {
+      "include": "#member"
+    },
+    {
+      "include": "#parameter"
+    },
+    {
+      "include": "#operator"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "begin": "#",
+      "end": "$",
+      "name": "comment.line.number-sign",
+      "patterns": [
+        {
+          "match": "\\*\\*(.+?)\\*\\*",
+          "name": "markup.bold"
+        },
+        {
+          "match": "(?<!\\*)\\*(?!\\*)(.+?)(?<!\\*)\\*(?!\\*)",
+          "name": "markup.italic"
+        },
+        {
+          "match": "`[^`]+`",
+          "name": "markup.inline.raw"
+        },
+        {
+          "match": "^#{1,6}\\s+.*$",
+          "name": "markup.heading"
+        },
+        {
+          "match": "\\[([^\\]]+)\\]\\(([^)]+)\\)",
+          "name": "markup.underline.link"
+        }
+      ]
+    },
+    "string": {
+      "match": "\"[^\"]*\"",
+      "name": "string.quoted.double"
+    },
+    "functional-intent": {
+      "comment": "Functional intent: a '> ...' line stating what a function/method body must do. Whole line scoped as a string (matches the Zed grammar's (functional_intent) @string).",
+      "match": "^(\\s*)(>)(.*)$",
+      "name": "string.quoted.other.intent.bhaus",
+      "captures": {
+        "2": {
+          "name": "punctuation.definition.string.begin.bhaus"
+        }
+      }
+    },
+    "version": {
+      "match": "\\b(VERSION)\\s+(\\d+\\.\\d+)",
+      "captures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "constant.numeric"
+        }
+      }
+    },
+    "keyword": {
+      "match": "\\b(PROTOCOL|STRUCT|CLASS|FUNCTION|FUNC|EXTENDS|IMPLEMENTS|OVERRIDE|PUBLIC|PRIVATE|PROTECTED|INCLUDE|EXTERN)\\b",
+      "name": "keyword.control"
+    },
+    "c4-type-declaration": {
+      "begin": "^\\s*(SYSTEM|CONTAINER|COMPONENT)\\s+",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.c4.declaration"
+        }
+      },
+      "name": "meta.type.c4.declaration",
+      "patterns": [
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*)",
+          "name": "entity.name.type"
+        },
+        {
+          "match": "\"([^\"]*)\"",
+          "name": "string.quoted.double"
+        },
+        {
+          "match": ":",
+          "name": "punctuation.colon"
+        }
+      ]
+    },
+    "c4-connection": {
+      "begin": "^\\s*(CONNECTION)\\s+",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.c4.connection"
+        }
+      },
+      "name": "meta.type.c4.connection",
+      "patterns": [
+        {
+          "match": "(->|<->|=>)",
+          "name": "keyword.operator.arrow"
+        },
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)+)",
+          "name": "variable.other.constant"
+        }
+      ]
+    },
+    "storage-type": {
+      "match": "\\b(Character|Char|String|Integer|Int|UnsignedInteger|UInt|Float|UnsignedFloat|UFloat|Boolean|Bool|Unknown)\\b",
+      "name": "storage.type"
+    },
+    "type-declaration": {
+      "match": "^(PROTOCOL|STRUCT|CLASS)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "captures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "entity.name.type"
+        }
+      }
+    },
+    "type-reference": {
+      "match": ":\\s*([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "captures": {
+        "1": {
+          "name": "entity.name.type"
+        }
+      }
+    },
+    "member": {
+      "match": "^(PUBLIC|PRIVATE|PROTECTED)?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\(|:)",
+      "captures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "entity.name.function"
+        }
+      }
+    },
+    "parameter": {
+      "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\s*:\\s*([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z0-9_]*)*)",
+      "captures": {
+        "1": {
+          "name": "variable.parameter"
+        },
+        "2": {
+          "name": "entity.name.type"
+        }
+      }
+    },
+    "operator": {
+      "match": "[:?\\[\\](),]",
+      "name": "punctuation"
+    }
+  },
+  "scopeName": "source.bhaus"
+}

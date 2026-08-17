@@ -1,0 +1,10 @@
+VERSION 0.1
+INCLUDE *
+
+# an entity
+CLASS Model IMPLEMENTS Base/Entity:
+    # A test property
+    PUBLIC test: Base/Bla
+
+    PUBLIC getIdentifier(): UUID
+        > returns current or creates new

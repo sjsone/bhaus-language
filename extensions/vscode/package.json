@@ -1,0 +1,88 @@
+{
+  "name": "bhaus",
+  "displayName": "BHaus",
+  "description": "BHaus language support for Visual Studio Code",
+  "version": "0.0.1",
+  "author": "Simon J. Schmidt",
+  "publisher": "SimonSchmidt",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "activationEvents": [
+    "onLanguage:bhaus"
+  ],
+  "main": "./out/extension.js",
+  "categories": [
+    "Programming Languages"
+  ],
+  "bhaus": {
+    "releaseTag": "latest",
+    "releaseRepo": "bhaus/language-server"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "bhaus",
+        "aliases": [
+          "BHaus",
+          "bhaus"
+        ],
+        "extensions": [
+          ".bhaus"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bhaus",
+        "scopeName": "source.bhaus",
+        "path": "./syntaxes/bhaus.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "BHaus configuration",
+      "properties": {
+        "bhaus.languageServerPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the BHaus language server binary. If empty, will attempt to download from GitHub releases."
+        },
+        "bhaus.releaseTag": {
+          "type": "string",
+          "default": "latest",
+          "description": "GitHub release tag to download the language server from (e.g., 'latest', 'v1.0.0')."
+        },
+        "bhaus.releaseRepo": {
+          "type": "string",
+          "default": "bhaus/language-server",
+          "description": "GitHub repository to download the language server from (format: 'owner/repo')."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "bhaus.downloadLanguageServer",
+        "title": "BHaus: Download Language Server",
+        "description": "Download or update the BHaus language server"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "esbuild src/extension.ts --bundle --platform=node --outfile=out/extension.js --external:vscode --external:vscode-languageclient",
+    "watch": "esbuild src/extension.ts --bundle --platform=node --outfile=out/extension.js --external:vscode --external:vscode-languageclient --watch",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.80.0",
+    "esbuild": "^0.27.3",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}

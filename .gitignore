@@ -1,0 +1,15 @@
+# language server
+language-server/bhaus-ls
+language-server/bin
+
+node_modules/
+
+# zed — build artifacts and Zed's grammar clones (regenerated on extension install)
+extensions/zed/grammars/
+extensions/zed/target/
+
+# Misc
+.docs
+.DS_Store
+CLAUDE.md
+*.wasm

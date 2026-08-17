@@ -1,0 +1,15 @@
+id = "bhaus"
+name = "BHaus"
+version = "0.1.0"
+schema_version = 1
+authors = ["BHaus"]
+description = "BHaus language support for Zed"
+repository = "https://github.com/bhaus/bhaus"
+
+[grammars.bhaus]
+repository = "file:///Users/simon/devel/bhaus_project/bhaus-tree-sitter"
+rev = "593da534ec7c2e99d3038333c5b54332f6f71896"
+
+[language_servers.bhaus-ls]
+name = "BHaus Language Server"
+languages = ["BHaus"]

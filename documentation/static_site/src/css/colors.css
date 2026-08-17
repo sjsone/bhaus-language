@@ -1,0 +1,60 @@
+:root {
+
+
+    --color-bhaus-logo-dark-blue: #010337;
+    --color-bhaus-logo-light-blue: #306FDE;
+    --color-bhaus-logo-pink-red: #E93351;
+    --color-bhaus-logo-pastel-yellow: #F6D15F;
+
+    --color-braun-functional-orange: #ed8008;
+    --color-braun-functional-red-orange: #ed3f1c;
+    --color-braun-functional-deep-red: #bf1b1b;
+    --color-braun-functional-green: #736b1e;
+
+    --color-braun-base-earthy-brown: #754C24;
+    --color-braun-base-slate-gray: #5E6B70;
+    --color-braun-base-deep-charcoal: #3B4B59;
+    --color-braun-base-beige: #D7C9A8;
+    --color-braun-base-off-white: #d9d2c6;
+
+
+
+    --ifm-color-primary: var(--color-bhaus-logo-pink-red);
+    --ifm-color-primary-dark: oklch(from var(--ifm-color-primary) calc(l - 0.1) c h);
+    --ifm-color-primary-darker: oklch(from var(--ifm-color-primary) calc(l - 0.2) c h);
+    --ifm-color-primary-darkest: oklch(from var(--ifm-color-primary) calc(l - 0.3) c h);
+    --ifm-color-primary-light: oklch(from var(--ifm-color-primary) calc(l + 0.1) c h);
+    --ifm-color-primary-lighter: oklch(from var(--ifm-color-primary) calc(l + 0.2) c h);
+    --ifm-color-primary-lightest: oklch(from var(--ifm-color-primary) calc(l + 0.3) c h);
+
+    --ifm-color-secondary: var(--color-bhaus-logo-pink-red);
+    --ifm-color-secondary-dark: oklch(from var(--ifm-color-secondary) calc(l - 0.1) c h);
+    --ifm-color-secondary-darker: oklch(from var(--ifm-color-secondary) calc(l - 0.2) c h);
+    --ifm-color-secondary-darkest: oklch(from var(--ifm-color-secondary) calc(l - 0.3) c h);
+    --ifm-color-secondary-light: oklch(from var(--ifm-color-secondary) calc(l + 0.1) c h);
+    --ifm-color-secondary-lighter: oklch(from var(--ifm-color-secondary) calc(l + 0.2) c h);
+    --ifm-color-secondary-lightest: oklch(from var(--ifm-color-secondary) calc(l + 0.3) c h);
+
+    --ifm-footer-title-color: var(--color-bhaus-logo-pink-red);
+
+    --ifm-code-font-size: 90%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+    --ifm-code-padding-vertical: 0.125rem;
+    --ifm-code-padding-horizontal: 0.25rem;
+}
+
+[data-theme="dark"] {
+    --ifm-color-primary: var(--color-bhaus-logo-pastel-yellow);
+    --ifm-color-primary-dark: oklch(from var(--ifm-color-primary) calc(l - 0.1) c h);
+    --ifm-color-primary-darker: oklch(from var(--ifm-color-primary) calc(l - 0.2) c h);
+    --ifm-color-primary-darkest: oklch(from var(--ifm-color-primary) calc(l - 0.3) c h);
+    --ifm-color-primary-light: oklch(from var(--ifm-color-primary) calc(l + 0.1) c h);
+    --ifm-color-primary-lighter: oklch(from var(--ifm-color-primary) calc(l + 0.2) c h);
+    --ifm-color-primary-lightest: oklch(from var(--ifm-color-primary) calc(l + 0.3) c h);
+
+    --ifm-footer-title-color: var(--color-bhaus-logo-pastel-yellow);
+    --ifm-footer-color: white;
+
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
