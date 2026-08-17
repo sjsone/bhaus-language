@@ -14,10 +14,9 @@ const config: Config = {
         v4: true, // Improve compatibility with the upcoming Docusaurus v4
     },
 
-    // url: "https://your-docusaurus-site.example.com",
-    // Set the /<baseUrl>/ pathname under which your site is served
-    // For GitHub pages deployment, it is often '/<projectName>/'
+    url: "https://sjsone.github.io/bhaus-language",
     baseUrl: "/",
+
 
     trailingSlash: false,
 
