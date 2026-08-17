@@ -14,15 +14,17 @@ const config: Config = {
         v4: true, // Improve compatibility with the upcoming Docusaurus v4
     },
 
-    url: "https://your-docusaurus-site.example.com",
+    // url: "https://your-docusaurus-site.example.com",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
 
+    trailingSlash: false,
+
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: "sjsone", // Usually your GitHub org/user name.
-    projectName: "bhaus", // Usually your repo name.
+    projectName: "bhaus-language", // Usually your repo name.
 
     onBrokenLinks: "throw",
 
