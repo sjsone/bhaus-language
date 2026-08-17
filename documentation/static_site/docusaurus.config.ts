@@ -135,7 +135,7 @@ const config: Config = {
                         },
                         {
                             label: "Getting Started",
-                            to: "/getting-started/installation",
+                            to: "/getting-started/quick-start",
                         },
                         {
                             label: "Specification",

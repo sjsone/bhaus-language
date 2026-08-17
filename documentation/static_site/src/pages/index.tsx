@@ -39,7 +39,7 @@ function HomepageHeader() {
               implement against.
             </p>
             <div className={styles.buttons}>
-              <Link className="button button--secondary button--lg" to="/getting-started/installation">
+              <Link className="button button--secondary button--lg" to="/getting-started/quick-start">
                 Get Started
               </Link>
               <Link className="button button--outline button--secondary button--lg" to="/specification">
