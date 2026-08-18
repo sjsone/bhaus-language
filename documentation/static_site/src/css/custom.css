@@ -11,7 +11,7 @@
         "Segoe UI Symbol";
 }
 
-code {
+code:not(pre code) {
     white-space: nowrap;
 }
 
