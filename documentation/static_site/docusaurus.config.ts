@@ -7,7 +7,7 @@ import rehypeRfcKeywords from "./src/plugins/rehypeRfcKeywords";
 const config: Config = {
     title: "BHaus",
     tagline: "Architecture and Design for Software Engineering",
-    favicon: "img/logo.svg",
+    favicon: "img/favicon.svg",
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
     future: {
@@ -93,7 +93,7 @@ const config: Config = {
             title: "BHaus",
             logo: {
                 alt: "BHaus Logo",
-                src: "img/logo.svg",
+                src: "img/bhaus-logo-slim.svg",
             },
             items: [
                 {
