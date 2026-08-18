@@ -1,7 +1,7 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import type { ReactNode } from "react";
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
@@ -11,56 +11,47 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Declarations Only',
-    icon: '{ }',
+    title: "Declarations Only",
+    icon: "{ }",
     description: (
       <>
-        No value expressions, no control flow, no arithmetic. A{' '}
-        <code>.bhaus</code> file only declares types, contracts, and
-        architecture. That keeps it small, diffable, and reviewable like a
-        spec, not a program.
+        A <code>.bhaus</code> file declares types, contracts and architecture only.
+        It stays small, easy to compare and reviewable like a specification.
       </>
     ),
   },
   {
-    title: 'Cross-Language by Design',
-    icon: '⇄',
+    title: "Cross-Language by Design",
+    icon: "⇄",
     description: (
       <>
-        The type system maps 1:1 onto TypeScript, Go, PHP and Swift.{' '}
-        <code>bhaus-cli scaffold</code> turns a design file into real source
-        for any of them today.
+        The type system is inspired by languages like TypeScript, Go, PHP and Swift.
       </>
     ),
   },
   {
-    title: 'Architecture as Code',
-    icon: '▦',
+    title: "Architecture as Code",
+    icon: "▦",
     description: (
       <>
-        <code>SYSTEM</code>, <code>CONTAINER</code>, <code>COMPONENT</code>{' '}
-        and <code>CONNECTION</code> implement the C4 model natively, so your
-        architecture diagram lives in version control next to the code it
-        describes.
+        BHaus chooses the C4 model as its way to describe architecture.
       </>
     ),
   },
   {
-    title: 'Real Tooling',
-    icon: '⚙',
+    title: "Real Tooling",
+    icon: "⚙",
     description: (
       <>
-        A tree-sitter grammar, a Go language server with hover and
-        go-to-definition, a linter, and editor support for VS&nbsp;Code and
-        Zed. It is not just a spec on paper.
+        <code>bhaus-cli</code> provides a linter, language server and more.
       </>
     ),
   },
 ];
 
-function Feature({title, icon, description}: FeatureItem) {
+function Feature({ title, icon, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--6')}>
+    <div className={clsx("col col--6")}>
       <div className={styles.featureRow}>
         <div className={styles.featureIcon} aria-hidden="true">
           {icon}

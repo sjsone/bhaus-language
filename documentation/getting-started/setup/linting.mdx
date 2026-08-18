@@ -51,10 +51,10 @@ check on their own.
 | Rule | Catches |
 | --- | --- |
 | `syntax` | Parse errors or malformed declarations |
-| `unresolved-ref` | A type, `EXTENDS`, `IMPLEMENTS`, or C4 endpoint that names nothing |
+| `unresolved-ref` | A type, `EXTENDS`, `IMPLEMENTS` or C4 endpoint that names nothing |
 | `duplicate-decl` | A declaration whose full name is declared more than once |
 | `naming` | Type names should be `Uppercase`; function/method names `lowercase` |
-| `structure` | `VERSION` must be present, and be the first declaration |
+| `structure` | `VERSION` must be present and be the first declaration |
 | `unknown-type` | A type annotation uses the built-in `Unknown` type |
 
 Pass `--format json` for machine-readable output. Use this to connect `lint`

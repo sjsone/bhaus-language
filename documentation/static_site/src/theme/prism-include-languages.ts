@@ -11,12 +11,17 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
     const PrismBefore = globalThis.Prism;
     globalThis.Prism = PrismObject;
 
+    if (!additionalLanguages.includes("php")) {
+        additionalLanguages.push("php");
+    }
+
+    // throw new Error(JSON.stringify(additionalLanguages))
+
     additionalLanguages.forEach((lang) => {
-        // if (lang === "php") {
-        //     // eslint-disable-next-line global-require
-        //     require("prismjs/components/prism-markup-templating.js");
-        // }
-        // eslint-disable-next-line global-require, import/no-dynamic-require
+        if (lang === "php") {
+            // eslint-disable-next-line global-require
+            require("prismjs/components/prism-markup-templating.js");
+        }
         require(`prismjs/components/prism-${lang}`);
     });
 

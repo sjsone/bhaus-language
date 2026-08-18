@@ -9,18 +9,26 @@ import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 
-const SAMPLE = `VERSION 0.1
+const SAMPLE_SOURCE = `VERSION 0.1
 
 STRUCT Domain/Entity/User:
     PUBLIC id: Integer
     PUBLIC name: String
     PUBLIC email: String
     PUBLIC roles: Array[String]
-    PUBLIC manager: ?Integer
+    PUBLIC manager: ?Integer`;
 
-PROTOCOL Domain/Repository:
-    PUBLIC findById(Integer): ?Domain/Entity/User
-    PUBLIC save(Domain/Entity/User): Boolean`;
+const SAMPLE_TARGET_PHP = `<?php
+
+namespace Domain\\Entity;
+
+class User {
+    public int $id;
+    public string $name;
+    public string $email;
+    public array $roles;
+    public ?int $manager;
+}`;
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -30,13 +38,18 @@ function HomepageHeader() {
         <div className="row">
           <div className={clsx("col col--6", styles.heroText)}>
             <Heading as="h1" className="hero__title">
-              {siteConfig.title}
+              <div style={{"display": "flex", "flexDirection": "column", "alignItems": "center"}}>
+                <img style={{ height: "9rem", marginRight: "0rem" }} src="/bhaus-language/img/logo.svg"></img>
+                {siteConfig.title}
+              </div>
             </Heading>
-            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <p className="hero__subtitle" style={{"lineHeight": "1.5rem"}}>
+              Architecture and Design<br />
+              <span style={{"fontSize": "1.125rem"}}>for Software Engineering</span>
+            </p>
             <p className={styles.heroLead}>
-              BHaus is a textual design language, written by humans and followed by text-generating models. A <code>.bhaus</code> file declares the types,
-              contracts and architecture of a system &mdash; nothing more &mdash; so it stays precise, diffable, and ready for an LLM (or a teammate) to
-              implement against.
+              BHaus is a design language for software systems. You write it by hand and models can read it. A <code>.bhaus</code> file defines the types,
+              contracts and architecture of your system. It keeps the design precise, easy to compare and ready for an LLM (or a teammate) to implement.
             </p>
             <div className={styles.buttons}>
               <Link className="button button--secondary button--lg" to="/getting-started/quick-start">
@@ -49,7 +62,11 @@ function HomepageHeader() {
           </div>
           <div className={clsx("col col--6", styles.heroCode)}>
             <CodeBlock language="bhaus" title="user.bhaus">
-              {SAMPLE}
+              {SAMPLE_SOURCE}
+            </CodeBlock>
+            <br/>
+            <CodeBlock language="php" title="Domain/Entity/User.php">
+              {SAMPLE_TARGET_PHP}
             </CodeBlock>
           </div>
         </div>
@@ -60,7 +77,7 @@ function HomepageHeader() {
 
 export default function Home(): ReactNode {
   return (
-    <Layout title="BHaus" description="BHaus is a textual software architecture and design language, written by humans and followed by text-generating models.">
+    <Layout title="BHaus" description="BHaus is a design language for software systems. You write it by hand and models can read it.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

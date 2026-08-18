@@ -7,7 +7,7 @@ import rehypeRfcKeywords from "./src/plugins/rehypeRfcKeywords";
 const config: Config = {
     title: "BHaus",
     tagline: "Architecture and Design for Software Engineering",
-    favicon: "img/favicon.ico",
+    favicon: "img/logo.svg",
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
     future: {
@@ -44,10 +44,7 @@ const config: Config = {
                     beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
                 },
                 theme: {
-                    customCss: [
-                        "./src/css/colors.css",
-                        "./src/css/custom.css",
-                    ],
+                    customCss: ["./src/css/colors.css", "./src/css/custom.css"],
                 },
             } satisfies Preset.Options,
         ],
@@ -76,7 +73,6 @@ const config: Config = {
                 beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
                 rehypePlugins: [rehypeRfcKeywords],
 
-
                 // ... other options
             },
         ],
@@ -97,6 +93,13 @@ const config: Config = {
             items: [
                 {
                     type: "docSidebar",
+                    docsPluginId: "gettingStarted",
+                    sidebarId: "gettingStartedSidebar",
+                    position: "left",
+                    label: "Getting Started",
+                },
+                {
+                    type: "docSidebar",
                     sidebarId: "languageSidebar",
                     position: "left",
                     label: "Language",
@@ -109,21 +112,13 @@ const config: Config = {
                     label: "Specification",
                 },
                 {
-                    type: "docSidebar",
-                    docsPluginId: "gettingStarted",
-                    sidebarId: "gettingStartedSidebar",
-                    position: "left",
-                    label: "Getting Started",
-                },
-                {
-                    href: "https://github.com/sjsone/bhaus-toolset",
+                    href: "https://github.com/sjsone/bhaus-language",
                     label: "GitHub",
                     position: "right",
                 },
             ],
         },
-        docs: {
-        },
+        docs: {},
         footer: {
             links: [
                 {
@@ -158,8 +153,38 @@ const config: Config = {
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula,
+            additionalLanguages: ['bash', 'php', 'go', 'typescript', 'javascript', 'swift'],
         },
     } satisfies Preset.ThemeConfig,
+
+    themes: [
+        [
+            require.resolve("@easyops-cn/docusaurus-search-local"),
+            /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+            {
+                // ... Your options.
+                // `hashed` is recommended as long-term-cache of index file is possible.
+                hashed: true,
+
+                // For Docs using Chinese, it is recomended to set:
+                // language: ["en", "zh"],
+
+                // Customize the keyboard shortcut to focus search bar (default is "mod+k"):
+                // searchBarShortcutKeymap: "s", // Use 'S' key
+                // searchBarShortcutKeymap: "ctrl+shift+f", // Use Ctrl+Shift+F
+
+                // If you're using `noIndex: true`, set `forceIgnoreNoIndex` to enable local index:
+                // forceIgnoreNoIndex: true,
+
+                // Enable Ask AI integration:
+                // askAi: {
+                //   project: "your-project-name",
+                //   apiUrl: "https://your-api-url.com/api/stream",
+                //   hotkey: "cmd+I", // Optional: keyboard shortcut to trigger Ask AI
+                // },
+            },
+        ],
+    ],
 };
 
 export default config;

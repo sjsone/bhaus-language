@@ -1,7 +1,7 @@
 ---
 slug: /
 title: BHaus Specification
-description: The normative BHaus language specification. It covers syntax, the type system, structural types, and the C4 architecture model.
+description: The normative BHaus language specification. It covers syntax, the type system, structural types and the C4 architecture model.
 ---
 
 # BHaus Specification
@@ -38,7 +38,7 @@ This document defines **BHaus**. It is a textual language for describing the str
 BHaus emphasizes **clarity through structure**. A BHaus document is a design
 artifact. It describes the _types_, _contracts_ and _architecture_ of a system.
 It does not describe runtime values or behavior. The language has no value
-expressions, no control flow, and no arithmetic. It has only declarations.
+expressions, no control flow and no arithmetic. It has only declarations.
 
 ### 1.3 Conformance Keywords
 
