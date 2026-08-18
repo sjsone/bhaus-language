@@ -1,10 +1,9 @@
 :root {
-
-
     --color-bhaus-logo-dark-blue: #010337;
     --color-bhaus-logo-light-blue: #306FDE;
     --color-bhaus-logo-pink-red: #E93351;
     --color-bhaus-logo-pastel-yellow: #F6D15F;
+    --color-bhaus-logo-dark-green: #015A2F;
 
     --color-braun-functional-orange: #ed8008;
     --color-braun-functional-red-orange: #ed3f1c;
@@ -16,8 +15,6 @@
     --color-braun-base-deep-charcoal: #3B4B59;
     --color-braun-base-beige: #D7C9A8;
     --color-braun-base-off-white: #d9d2c6;
-
-
 
     --ifm-color-primary: var(--color-bhaus-logo-pink-red);
     --ifm-color-primary-dark: oklch(from var(--ifm-color-primary) calc(l - 0.1) c h);

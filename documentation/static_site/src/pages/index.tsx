@@ -38,7 +38,7 @@ function HomepageHeader() {
         <div className="row">
           <div className={clsx("col col--6", styles.heroText)}>
             <Heading as="h1" className="hero__title">
-              <div style={{"display": "flex", "flexDirection": "column", "alignItems": "center"}}>
+              <div style={{"display": "flex", "flexDirection": "column", "alignItems": "start"}}>
                 <img style={{ height: "9rem", marginRight: "0rem" }} src="/bhaus-language/img/logo.svg"></img>
                 {siteConfig.title}
               </div>

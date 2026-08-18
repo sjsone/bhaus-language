@@ -19,7 +19,7 @@
   justify-content: center;
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: 0.75rem;
+  border-radius: 0rem;
   background: var(--ifm-color-emphasis-100);
   color: var(--ifm-color-primary);
   font-size: 1.5rem;

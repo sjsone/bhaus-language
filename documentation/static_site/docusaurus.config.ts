@@ -44,7 +44,12 @@ const config: Config = {
                     beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
                 },
                 theme: {
-                    customCss: ["./src/css/colors.css", "./src/css/custom.css"],
+                    customCss: [
+                        "./src/css/colors.css",
+                        "./src/css/font-switzer.css",
+                        "./src/css/font-sora.css",
+                        "./src/css/custom.css"
+                    ],
                 },
             } satisfies Preset.Options,
         ],
@@ -153,7 +158,7 @@ const config: Config = {
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula,
-            additionalLanguages: ['bash', 'php', 'go', 'typescript', 'javascript', 'swift'],
+            additionalLanguages: ["bash", "php", "go", "typescript", "javascript", "swift"],
         },
     } satisfies Preset.ThemeConfig,
 
