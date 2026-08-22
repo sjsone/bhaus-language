@@ -1,0 +1,43 @@
+VERSION 0.1
+
+# **C4 Model**: E-Mail Architecture
+# This example demonstrates all four C4 abstraction levels.
+
+SYSTEM MailSystem "E-Mail Backend":
+    # Message Delivery Agent - stores incoming mail
+    CONTAINER MDA:
+    # Message Transfer Agent - routes outgoing mail
+    CONTAINER MTA "Mail Transfer Agent":
+        COMPONENT SmtpServer:
+        COMPONENT QueueManager:
+    # Persistent storage for mail data
+    CONTAINER Database:
+
+SYSTEM Webmail "Web-based Mail Client":
+    CONTAINER Frontend "React SPA":
+        COMPONENT MailList "Inbox View":
+        COMPONENT ComposeView "Compose View":
+        COMPONENT SettingsView "Settings View":
+
+    CONTAINER Backend "API Server":
+        # Shorthand: source is implicitly *Webmail.Backend*
+        CONNECTION => MailSystem.MTA
+
+        COMPONENT AuthModule "Authentication":
+        COMPONENT MailHandler "Mail Processing":
+
+SYSTEM SpamFilter "Spam Detection Service":
+    CONTAINER Scanner:
+        COMPONENT RuleEngine:
+        COMPONENT MlClassifier:
+    CONTAINER Quarantine:
+
+# *Unidirectional* connections
+CONNECTION Webmail.Backend -> MailSystem.MTA
+CONNECTION MailSystem.MTA -> MailSystem.Database
+CONNECTION MailSystem.MTA -> SpamFilter.Scanner
+CONNECTION Webmail.Backend -> MailSystem.Database
+
+# *Bidirectional* connections
+CONNECTION Webmail.Frontend <-> Webmail.Backend
+CONNECTION SpamFilter.Scanner <-> SpamFilter.Quarantine

@@ -1,0 +1,13 @@
+VERSION 0.1
+
+
+
+STRUCT Domain/Entity/User:
+    PUBLIC id: Integer
+    PUBLIC name: String
+    PUBLIC email: String
+    PUBLIC roles: Array[String]
+
+PROTOCOL Domain/Repository:
+    PUBLIC findById(Integer): ?Domain/Entity/User
+    PUBLIC save(Domain/Entity/User): Boolean
