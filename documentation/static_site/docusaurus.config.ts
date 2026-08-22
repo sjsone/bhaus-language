@@ -148,7 +148,7 @@ const config: Config = {
                     items: [
                         {
                             label: "GitHub",
-                            href: "https://github.com/sjsone/bhaus-toolset",
+                            href: "https://github.com/sjsone/bhaus-util",
                         },
                     ],
                 },
