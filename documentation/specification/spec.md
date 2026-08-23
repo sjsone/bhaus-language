@@ -79,7 +79,7 @@ A keyword in lower case is normal English. A lower-case "must", "should" or
 
 A BHaus document is built from:
 
-- **Keywords**: fixed uppercase tokens (`VERSION`, `FUNCTION`, `CLASS`, `PUBLIC`, `SYSTEM`, …) and the fixed built-in [§4.1 simple type](#41-simple-types) names.
+- **Keywords**: fixed uppercase tokens (`VERSION`, `FUNCTION`, `CLASS`, `PUBLIC`, `SYSTEM`, ...) and the fixed built-in [§4.1 simple type](#41-simple-types) names.
 - **Identifiers**: an identifier MUST match `[a-zA-Z_][a-zA-Z0-9_]*`. An identifier is the atom of every name. The first character MUST NOT be a digit.
 - **Names**: a _contextual name_ is either a single identifier or a slash-separated **path** (`Domain/Entity/User`). See [§2.4 contextual name](#24-contextual-names-and-paths).
 - **C4 paths**: dot-separated identifier chains (`MailSystem.MTA`). Used only for [§8 C4](#8-c4-architecture-model) connection endpoints.

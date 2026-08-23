@@ -1,7 +1,5 @@
 VERSION 0.1
 
-
-
 STRUCT Domain/Entity/User:
     PUBLIC id: Integer
     PUBLIC name: String
