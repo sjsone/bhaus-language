@@ -22,7 +22,7 @@ impl Extension for BhausExtension {
         let log_path = format!("{}/.bhaus-ls.log", worktree.root_path());
 
         Ok(Command {
-            command: "/Users/simon/devel/bhaus_project/bhaus-util/bin/bhaus-cli"
+            command: "/Users/simon/devel/bhaus_project/bhaus-util/bin/bhaus-util"
                 .to_string(),
             args: vec![
                 "ls".to_string(),

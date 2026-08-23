@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
     icon: "⚙",
     description: (
       <>
-        <code>bhaus-cli</code> provides a linter, language server and more.
+        <code>bhaus-util</code> provides a linter, language server and more.
       </>
     ),
   },
