@@ -26,6 +26,11 @@ code:not(pre code) {
     border: 0.1rem solid rgba(0, 0, 0, 0.75);
 }
 
+a code:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+}
+
 .theme-code-block {
     --ifm-global-radius: 0;
 
