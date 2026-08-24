@@ -15,8 +15,8 @@ const FeatureList: FeatureItem[] = [
     icon: "{ }",
     description: (
       <>
-        A <code>.bhaus</code> file declares types, contracts and architecture only.
-        It stays small, easy to compare and reviewable like a specification.
+        A <code>.bhaus</code> file contains types, contracts and architecture. <br />
+        This keeps files compact, easy to diff and as reviewable as any good specification.
       </>
     ),
   },
@@ -25,25 +25,22 @@ const FeatureList: FeatureItem[] = [
     icon: "⇄",
     description: (
       <>
-        The type system is inspired by languages like TypeScript, Go, PHP and Swift.
+        The type system draws from familiar languages like TypeScript, Go, PHP and Swift. <br />
+        Meant to it feel natural wherever you are coming from.
       </>
     ),
   },
   {
     title: "Architecture as Code",
     icon: "▦",
-    description: (
-      <>
-        BHaus chooses the C4 model as its way to describe architecture.
-      </>
-    ),
+    description: <>BHaus uses the C4 model to describe software architecture in a structured, visualizable format that everyone can understand.</>,
   },
   {
     title: "Real Tooling",
     icon: "⚙",
     description: (
       <>
-        <code>bhaus-util</code> provides a linter, language server and more.
+        The <code>bhaus-util</code> command line tool gives you a linter, language server, scaffolding generator and more to keep you productive.
       </>
     ),
   },
