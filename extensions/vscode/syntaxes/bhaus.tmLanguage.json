@@ -15,31 +15,58 @@
       "include": "#version"
     },
     {
-      "include": "#keyword"
-    },
-    {
       "include": "#c4-type-declaration"
     },
     {
       "include": "#c4-connection"
     },
     {
-      "include": "#storage-type"
+      "include": "#include-declaration"
     },
     {
-      "include": "#type-declaration"
+      "include": "#extern-declaration"
     },
     {
-      "include": "#type-reference"
+      "include": "#function-declaration"
+    },
+    {
+      "include": "#struct-declaration"
+    },
+    {
+      "include": "#protocol-declaration"
+    },
+    {
+      "include": "#class-declaration"
     },
     {
       "include": "#member"
     },
     {
-      "include": "#parameter"
+      "include": "#keyword"
     },
     {
-      "include": "#operator"
+      "include": "#named-parameter"
+    },
+    {
+      "include": "#bits-type"
+    },
+    {
+      "include": "#storage-type"
+    },
+    {
+      "include": "#contextual-name"
+    },
+    {
+      "include": "#punctuation-colon"
+    },
+    {
+      "include": "#punctuation-separator"
+    },
+    {
+      "include": "#punctuation-bracket"
+    },
+    {
+      "include": "#type-operator"
     }
   ],
   "repository": {
@@ -71,7 +98,8 @@
       ]
     },
     "string": {
-      "match": "\"[^\"]*\"",
+      "comment": "C4 descriptions are the only quoted strings in the language (§2.1). Declarations that carry them are matched by #c4-type-declaration, which scopes the string itself; this top-level rule is a safety net.",
+      "match": "\"[^\"]+\"",
       "name": "string.quoted.double"
     },
     "functional-intent": {
@@ -85,7 +113,7 @@
       }
     },
     "version": {
-      "match": "\\b(VERSION)\\s+(\\d+\\.\\d+)",
+      "match": "^\\s*(VERSION)\\s+(\\d+\\.\\d+)",
       "captures": {
         "1": {
           "name": "keyword.control"
@@ -95,11 +123,8 @@
         }
       }
     },
-    "keyword": {
-      "match": "\\b(PROTOCOL|STRUCT|CLASS|FUNCTION|FUNC|EXTENDS|IMPLEMENTS|OVERRIDE|PUBLIC|PRIVATE|PROTECTED|INCLUDE|EXTERN)\\b",
-      "name": "keyword.control"
-    },
     "c4-type-declaration": {
+      "comment": "SYSTEM/CONTAINER/COMPONENT declarations (§8.1). Single-line context: each C4 element starts its own line, and nesting is expressed purely by indentation.",
       "begin": "^\\s*(SYSTEM|CONTAINER|COMPONENT)\\s+",
       "end": "$",
       "beginCaptures": {
@@ -114,7 +139,7 @@
           "name": "entity.name.type"
         },
         {
-          "match": "\"([^\"]*)\"",
+          "match": "\"([^\"]+)\"",
           "name": "string.quoted.double"
         },
         {
@@ -124,31 +149,41 @@
       ]
     },
     "c4-connection": {
+      "comment": "Connection declarations and shorthands (§8.2, §8.3). CONNECTION reads as a relationship rather than a declaration, hence the operator scope (matches Zed's \"CONNECTION\" @operator). Endpoints are C4 paths referencing element names, so they share entity.name.type with #c4-type-declaration.",
       "begin": "^\\s*(CONNECTION)\\s+",
       "end": "$",
       "beginCaptures": {
         "1": {
-          "name": "keyword.control.c4.connection"
+          "name": "keyword.operator.c4.connection"
         }
       },
       "name": "meta.type.c4.connection",
       "patterns": [
         {
-          "match": "(->|<->|=>)",
+          "match": "(<->|->|=>)",
           "name": "keyword.operator.arrow"
         },
         {
-          "match": "([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)+)",
-          "name": "variable.other.constant"
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*(?:\\.[a-zA-Z_][a-zA-Z0-9_]*)*)",
+          "name": "entity.name.type"
         }
       ]
     },
-    "storage-type": {
-      "match": "\\b(Character|Char|String|Integer|Int|UnsignedInteger|UInt|Float|UnsignedFloat|UFloat|Boolean|Bool|Unknown)\\b",
-      "name": "storage.type"
+    "include-declaration": {
+      "comment": "INCLUDE with a glob pattern (§3.2). The glob is scoped as a string (matches the Zed grammar's (glob_pattern) @string).",
+      "match": "^\\s*(INCLUDE)\\s+([a-zA-Z0-9_*./]+)",
+      "captures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "string.unquoted.glob.bhaus"
+        }
+      }
     },
-    "type-declaration": {
-      "match": "^(PROTOCOL|STRUCT|CLASS)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+    "extern-declaration": {
+      "comment": "EXTERN with a contextual name (§3.3). The name is a type reference (matches Zed's (contextual_name) @type).",
+      "match": "^\\s*(EXTERN)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
       "captures": {
         "1": {
           "name": "keyword.control"
@@ -158,16 +193,9 @@
         }
       }
     },
-    "type-reference": {
-      "match": ":\\s*([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
-      "captures": {
-        "1": {
-          "name": "entity.name.type"
-        }
-      }
-    },
-    "member": {
-      "match": "^(PUBLIC|PRIVATE|PROTECTED)?\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\(|:)",
+    "function-declaration": {
+      "comment": "Top-level FUNCTION/FUNC declaration (§5.1). Parameters and the return type on the rest of the line are handled by the generic type rules below.",
+      "match": "^\\s*(FUNCTION|FUNC)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
       "captures": {
         "1": {
           "name": "keyword.control"
@@ -177,20 +205,278 @@
         }
       }
     },
-    "parameter": {
-      "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\s*:\\s*([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z0-9_]*)*)",
-      "captures": {
+    "struct-declaration": {
+      "comment": "STRUCT declaration and body (§6.4). The body ends when a top-level declaration begins (semantic lookahead). Struct members scope as entity.name.variable (Zed: (struct_member) @property) since structs hold properties, not methods.",
+      "begin": "^\\s*(STRUCT)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "end": "(?=^\\s*(VERSION|INCLUDE|EXTERN|FUNCTION|FUNC|STRUCT|PROTOCOL|CLASS|SYSTEM|CONTAINER|COMPONENT|CONNECTION)\\b)",
+      "beginCaptures": {
         "1": {
-          "name": "variable.parameter"
+          "name": "keyword.control"
         },
         "2": {
           "name": "entity.name.type"
         }
+      },
+      "name": "meta.struct.declaration.bhaus",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#functional-intent"
+        },
+        {
+          "include": "#struct-member"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#named-parameter"
+        },
+        {
+          "include": "#bits-type"
+        },
+        {
+          "include": "#storage-type"
+        },
+        {
+          "include": "#contextual-name"
+        },
+        {
+          "include": "#punctuation-colon"
+        },
+        {
+          "include": "#punctuation-separator"
+        },
+        {
+          "include": "#punctuation-bracket"
+        },
+        {
+          "include": "#type-operator"
+        }
+      ]
+    },
+    "protocol-declaration": {
+      "comment": "PROTOCOL declaration and body (§6.3). The body ends when a top-level declaration begins (semantic lookahead); members scope as entity.name.function (Zed: (protocol_member) @function).",
+      "begin": "^\\s*(PROTOCOL)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "end": "(?=^\\s*(VERSION|INCLUDE|EXTERN|FUNCTION|FUNC|STRUCT|PROTOCOL|CLASS|SYSTEM|CONTAINER|COMPONENT|CONNECTION)\\b)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "entity.name.type"
+        }
+      },
+      "name": "meta.protocol.declaration.bhaus",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#functional-intent"
+        },
+        {
+          "include": "#member"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#named-parameter"
+        },
+        {
+          "include": "#bits-type"
+        },
+        {
+          "include": "#storage-type"
+        },
+        {
+          "include": "#contextual-name"
+        },
+        {
+          "include": "#punctuation-colon"
+        },
+        {
+          "include": "#punctuation-separator"
+        },
+        {
+          "include": "#punctuation-bracket"
+        },
+        {
+          "include": "#type-operator"
+        }
+      ]
+    },
+    "class-declaration": {
+      "comment": "CLASS declaration and body (§6.5). The body ends when a top-level declaration begins (semantic lookahead). The declaration line may carry EXTENDS/IMPLEMENTS before the colon; members may start with OVERRIDE.",
+      "begin": "^\\s*(CLASS)\\s+([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "end": "(?=^\\s*(VERSION|INCLUDE|EXTERN|FUNCTION|FUNC|STRUCT|PROTOCOL|CLASS|SYSTEM|CONTAINER|COMPONENT|CONNECTION)\\b)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control"
+        },
+        "2": {
+          "name": "entity.name.type"
+        }
+      },
+      "name": "meta.class.declaration.bhaus",
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#functional-intent"
+        },
+        {
+          "include": "#extends-clause"
+        },
+        {
+          "include": "#member"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#named-parameter"
+        },
+        {
+          "include": "#bits-type"
+        },
+        {
+          "include": "#storage-type"
+        },
+        {
+          "include": "#contextual-name"
+        },
+        {
+          "include": "#punctuation-colon"
+        },
+        {
+          "include": "#punctuation-separator"
+        },
+        {
+          "include": "#punctuation-bracket"
+        },
+        {
+          "include": "#type-operator"
+        }
+      ]
+    },
+    "extends-clause": {
+      "comment": "EXTENDS/IMPLEMENTS clause on a CLASS declaration line (§6.5). Consumes through the trailing colon so the operand names scope as types before the generic parameter/type rules can claim them.",
+      "begin": "\\b(EXTENDS|IMPLEMENTS)\\b",
+      "end": ":",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.colon"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#extends-keyword"
+        },
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+          "name": "entity.name.type"
+        },
+        {
+          "match": ",",
+          "name": "punctuation.separator"
+        }
+      ]
+    },
+    "extends-keyword": {
+      "match": "\\b(EXTENDS|IMPLEMENTS)\\b",
+      "name": "keyword.control"
+    },
+    "member": {
+      "comment": "A protocol/class member: OVERRIDE? visibility identifier, followed by a parameter list or a colon (§6.2, §6.5).",
+      "match": "^(\\s*)(?:(OVERRIDE)\\s+)?(?:(PUBLIC|PRIVATE|PROTECTED)\\s+)?([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*(?:\\(|:))",
+      "captures": {
+        "2": {
+          "name": "keyword.control"
+        },
+        "3": {
+          "name": "keyword.control"
+        },
+        "4": {
+          "name": "entity.name.function"
+        }
       }
     },
-    "operator": {
-      "match": "[:?\\[\\](),]",
-      "name": "punctuation"
+    "struct-member": {
+      "comment": "A struct member: visibility identifier, followed by a parameter list or a colon (§6.4). Structs hold properties, so the name scopes as a variable.",
+      "match": "^(\\s*)(?:(PUBLIC|PRIVATE|PROTECTED)\\s+)?([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*(?:\\(|:))",
+      "captures": {
+        "2": {
+          "name": "keyword.control"
+        },
+        "3": {
+          "name": "entity.name.variable"
+        }
+      }
+    },
+    "keyword": {
+      "comment": "Fallback for keywords not consumed by a specific declaration rule.",
+      "match": "\\b(EXTENDS|IMPLEMENTS|OVERRIDE|PUBLIC|PRIVATE|PROTECTED|INCLUDE|EXTERN|FUNCTION|FUNC|PROTOCOL|STRUCT|CLASS|SYSTEM|CONTAINER|COMPONENT|CONNECTION|VERSION)\\b",
+      "name": "keyword.control"
+    },
+    "named-parameter": {
+      "comment": "Named parameter: identifier : type (§5.2). Bare-type parameters are handled by the generic type rules.",
+      "match": "([a-zA-Z_][a-zA-Z0-9_]*)(?=\\s*:)",
+      "name": "variable.parameter"
+    },
+    "bits-type": {
+      "comment": "Bits<N> type (§4.2). N is a bare bit-width literal, not a nested type.",
+      "match": "\\b(Bits)\\s*(<)\\s*(\\d+)\\s*(>)",
+      "captures": {
+        "1": {
+          "name": "storage.type"
+        },
+        "2": {
+          "name": "punctuation.definition.type.begin.bhaus"
+        },
+        "3": {
+          "name": "constant.numeric"
+        },
+        "4": {
+          "name": "punctuation.definition.type.end.bhaus"
+        }
+      }
+    },
+    "storage-type": {
+      "comment": "Simple types (§4.1), plus the Array (§4.4) and Bits (§4.2) constructors. Array's inner type and brackets are handled by the generic rules, so Array[Bits<16>] composes without recursion.",
+      "match": "\\b(Character|Char|String|Integer|Int|Float|Boolean|Bool|UnsignedInteger|UInt|UnsignedFloat|UFloat|Unknown|Array|Bits)\\b",
+      "name": "storage.type"
+    },
+    "contextual-name": {
+      "comment": "Contextual names and paths (§2.4) used as type references: return types, bare parameter types, union operands, EXTENDS/IMPLEMENTS/EXTERN targets. Mirrors the Zed grammar's (contextual_name) @type.",
+      "match": "([a-zA-Z_][a-zA-Z0-9_]*(?:/[a-zA-Z_][a-zA-Z0-9_]*)*)",
+      "name": "entity.name.type"
+    },
+    "punctuation-colon": {
+      "match": ":",
+      "name": "punctuation.colon"
+    },
+    "punctuation-separator": {
+      "match": ",",
+      "name": "punctuation.separator"
+    },
+    "punctuation-bracket": {
+      "match": "[()\\[\\]<>]",
+      "name": "punctuation.bracket"
+    },
+    "type-operator": {
+      "comment": "Optional-type marker ? (§4.3) and union separator | (§4.5).",
+      "match": "[?|]",
+      "name": "keyword.operator"
     }
   },
   "scopeName": "source.bhaus"

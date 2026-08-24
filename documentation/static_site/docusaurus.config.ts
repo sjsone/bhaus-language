@@ -4,6 +4,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import rehypeRfcKeywords from "./src/plugins/rehypeRfcKeywords";
 
+import {bhaus_theme_light, bhaus_theme_dark} from "./src/theme/prism-bhaus";
+
 const config: Config = {
     title: "BHaus",
     tagline: "Architecture and Design for Software Engineering",
@@ -156,8 +158,8 @@ const config: Config = {
             copyright: `Copyright © ${new Date().getFullYear()} BHaus. Built with Docusaurus.`,
         },
         prism: {
-            theme: prismThemes.github,
-            darkTheme: prismThemes.dracula,
+            theme: bhaus_theme_light,
+            darkTheme: bhaus_theme_dark,
             additionalLanguages: ["bash", "php", "go", "typescript", "javascript", "swift"],
         },
     } satisfies Preset.ThemeConfig,

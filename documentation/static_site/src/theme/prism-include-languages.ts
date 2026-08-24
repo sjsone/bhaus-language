@@ -2,6 +2,8 @@ import siteConfig from "@generated/docusaurus.config";
 import type * as PrismNamespace from "prismjs";
 import type { Optional } from "utility-types";
 
+import {bhaus_language} from "./prism-bhaus"
+
 export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace): void {
     const {
         themeConfig: { prism },
@@ -28,7 +30,10 @@ export default function prismIncludeLanguages(PrismObject: typeof PrismNamespace
     // Custom language, not shipped by Prism itself, so it must not go through
     // additionalLanguages (that array is resolved against prismjs/components/).
     // eslint-disable-next-line global-require
-    require("./prism-bhaus.js");
+
+
+    // BHaus grammar for Prism. Mirrors bhaus/documentation/specification/spec.md.
+    PrismObject.languages.bhaus = bhaus_language
 
     delete (globalThis as Optional<typeof globalThis, "Prism">).Prism;
     if (typeof PrismBefore !== "undefined") {
