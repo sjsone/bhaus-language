@@ -79,7 +79,7 @@ letters, digits and underscores, never starting with a digit.
 
 `2nd` is not.
 
-### Contextual names (slash paths)
+### Contextual names `/`
 
 A **contextual name** is either a single identifier or several identifiers joined by
 slashes into a **path**:
@@ -95,7 +95,7 @@ Contextual names are used for struct, protocol and class names, for
 `EXTENDS`/`IMPLEMENTS` targets, for function names and for any reference to a
 user-defined type.
 
-### C4 paths (dot paths)
+### C4 paths `.`
 
 The [architecture](../architecture/overview.md) keywords use dots as a separator
 instead of slashes:
