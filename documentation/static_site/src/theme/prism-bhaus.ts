@@ -136,7 +136,9 @@ export const bhaus_theme_light: PrismTheme = {
         {
             types: ["functional-intent"],
             style: {
-                fontStyle: "italic"
+                color: color.bhaus.pastel_yellow,
+                fontStyle: "italic",
+                fontWeight: "bold"
             }
         }
     ],
@@ -205,5 +207,13 @@ export const bhaus_theme_dark: PrismTheme = {
                 fontStyle: "normal",
             },
         },
+        {
+            types: ["functional-intent"],
+            style: {
+                color: color.bhaus.pastel_yellow,
+                fontStyle: "italic",
+                fontWeight: "bold"
+            }
+        }
     ],
 };

@@ -11,23 +11,29 @@ import styles from "./index.module.css";
 
 const SAMPLE_SOURCE = `VERSION 0.1
 
-STRUCT Domain/Entity/User:
+CLASS Domain/User:
     PUBLIC id: Integer
     PUBLIC name: String
     PUBLIC email: String
-    PUBLIC roles: Array[String]
-    PUBLIC manager: ?Integer`;
+
+    PUBLIC displayName(): String
+        > return name if not empty
+        > return email if name empty`;
 
 const SAMPLE_TARGET_PHP = `<?php
 
-namespace Domain\\Entity;
+namespace Domain;
 
 class User {
     public int $id;
     public string $name;
     public string $email;
-    public array $roles;
-    public ?int $manager;
+
+    public function displayName(): string {
+        // TODO: return name if not empty
+        // TODO: return email if name empty
+        throw new \Exception('not implemented');
+    }
 }`;
 
 function HomepageHeader() {
@@ -49,8 +55,10 @@ function HomepageHeader() {
               <span style={{ fontSize: "1.125rem" }}>for Software Engineering</span>
             </p>
             <p className={styles.heroLead}>
-              BHaus is a design language for software systems. You write it by hand and models can read it.
-              <br />A <code>.bhaus</code> file defines the types, contracts and architecture of your system. It keeps the design precise, easy to compare and
+              BHaus is a design language to keep programming by hand, in a world of LLMs and coding agents.
+            </p>
+            <p className={styles.heroLead}>
+              A <code>.bhaus</code> file defines the types, contracts and architecture of your system. It keeps the design precise, easy to compare and
               ready for an LLM (or a teammate) to implement.
             </p>
             <div className={styles.buttons}>
