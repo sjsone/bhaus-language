@@ -38,18 +38,20 @@ function HomepageHeader() {
         <div className="row">
           <div className={clsx("col col--6", styles.heroText)}>
             <Heading as="h1" className="hero__title">
-              <div style={{"display": "flex", "flexDirection": "column", "alignItems": "start"}}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
                 <img style={{ height: "9rem", marginRight: "0rem" }} src="/bhaus-language/img/logo.svg"></img>
                 {siteConfig.title}
               </div>
             </Heading>
-            <p className="hero__subtitle" style={{"lineHeight": "1.5rem"}}>
-              Architecture and Design<br />
-              <span style={{"fontSize": "1.125rem"}}>for Software Engineering</span>
+            <p className="hero__subtitle" style={{ lineHeight: "1.5rem" }}>
+              Architecture and Design
+              <br />
+              <span style={{ fontSize: "1.125rem" }}>for Software Engineering</span>
             </p>
             <p className={styles.heroLead}>
-              BHaus is a design language for software systems. You write it by hand and models can read it. A <code>.bhaus</code> file defines the types,
-              contracts and architecture of your system. It keeps the design precise, easy to compare and ready for an LLM (or a teammate) to implement.
+              BHaus is a design language for software systems. You write it by hand and models can read it.
+              <br />A <code>.bhaus</code> file defines the types, contracts and architecture of your system. It keeps the design precise, easy to compare and
+              ready for an LLM (or a teammate) to implement.
             </p>
             <div className={styles.buttons}>
               <Link className="button button--secondary button--lg" to="/getting-started/quick-start">
@@ -64,7 +66,7 @@ function HomepageHeader() {
             <CodeBlock language="bhaus" title="user.bhaus">
               {SAMPLE_SOURCE}
             </CodeBlock>
-            <br/>
+            <br />
             <CodeBlock language="php" title="Domain/Entity/User.php">
               {SAMPLE_TARGET_PHP}
             </CodeBlock>
