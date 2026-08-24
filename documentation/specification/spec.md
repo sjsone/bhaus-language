@@ -371,6 +371,8 @@ FUNCTION calculateTotal(values: Array[Integer]): Integer
 The intend documents the intended behavior of the function or method.  
 The intend serves as a specification for code-generation and AI tooling.
 
+A functional intent MUST be written in **imperative mood**. Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates". For example, use `> return true if valid` not `> returns true if valid`.
+
 ---
 
 ## 8. C4 Architecture Model

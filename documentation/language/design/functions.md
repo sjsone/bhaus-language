@@ -62,6 +62,8 @@ An intent is the specification of the body: a human writes it in plain language 
 a code generator or AI reads it to produce an implementation. It says what should
 happen and leaves out how.
 
+A functional intent MUST be written in **imperative mood**. Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates". For example, use `> return true if valid` not `> returns true if valid`.
+
 > [!NOTE]
 > An intent attaches to a body, meaning a function or a [method](./structs.md). It
 > differs from a comment (which starts with `#`) and from a document-level statement.

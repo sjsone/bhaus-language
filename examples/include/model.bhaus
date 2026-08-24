@@ -7,4 +7,4 @@ CLASS Model IMPLEMENTS Base/Entity:
     PUBLIC test: Base/Bla
 
     PUBLIC getIdentifier(): UUID
-        > returns current or creates new
+        > return current or create new
