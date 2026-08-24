@@ -71,6 +71,10 @@ h3 {
         serif;
 }
 
+.hero__subtitle {
+    font-weight: bolder;
+}
+
 .plugin-id-specification {
     h4,
     h5,
