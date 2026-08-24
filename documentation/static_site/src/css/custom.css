@@ -6,17 +6,22 @@
     --ifm-pagination-nav-border-radius: 0rem;
     --ifm-alert-border-radius: 0rem;
 
+    --ifm-code-font-size: 1rem;
+
     --ifm-font-family-base:
         "Switzer-Variable", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
         "Segoe UI Symbol";
 }
 
 code:not(pre code) {
+    --ifm-code-font-size: 0.9rem;
+    font-weight: 600;
+
     display: inline-block;
     max-width: 100%;
     overflow-x: auto;
     vertical-align: middle;
-    line-height: 1.3rem;
+    line-height: 1.1rem;
     white-space: nowrap;
     border: 0.1rem solid rgba(0, 0, 0, 0.75);
 }

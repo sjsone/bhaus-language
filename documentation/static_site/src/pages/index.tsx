@@ -17,12 +17,9 @@ CLASS Domain/User:
     PUBLIC email: String
 
     PUBLIC displayName(): String
-        > return name if not empty
         > return email if name empty`;
 
-const SAMPLE_TARGET_PHP = `<?php
-
-namespace Domain;
+const SAMPLE_TARGET_PHP = `namespace Domain;
 
 class User {
     public int $id;
@@ -30,7 +27,6 @@ class User {
     public string $email;
 
     public function displayName(): string {
-        // TODO: return name if not empty
         // TODO: return email if name empty
         throw new \Exception('not implemented');
     }
