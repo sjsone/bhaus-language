@@ -53,6 +53,7 @@ const color = {
         light_blue: "#306FDE",
         pink_red: "#E93351",
         pastel_yellow: "#F6D15F",
+        dark_yellow: "#ECB60E",
         dark_green: "#015A2F",
         purple: "#ab4aa9",
     },
@@ -74,6 +75,7 @@ export const bhaus_theme_light: PrismTheme = {
     plain: {
         color: "#1d1d16",
         backgroundColor: "#ffffff",
+        fontWeight: "600"
     },
     styles: [
         {
@@ -87,6 +89,7 @@ export const bhaus_theme_light: PrismTheme = {
             style: {
                 color: "#999988",
                 fontStyle: "italic",
+                fontWeight: "800"
             },
         },
         {
@@ -136,9 +139,9 @@ export const bhaus_theme_light: PrismTheme = {
         {
             types: ["functional-intent"],
             style: {
-                color: color.bhaus.pastel_yellow,
+                color: color.bhaus.dark_yellow,
                 fontStyle: "italic",
-                fontWeight: "bold"
+                fontWeight: "800"
             }
         }
     ],
@@ -148,6 +151,7 @@ export const bhaus_theme_dark: PrismTheme = {
     plain: {
         color: "#d0d0d0",
         backgroundColor: "#141414",
+        fontWeight: "600"
     },
     styles: [
         {
@@ -161,6 +165,7 @@ export const bhaus_theme_dark: PrismTheme = {
             style: {
                 color: "#999988",
                 fontStyle: "italic",
+                fontWeight: "800"
             },
         },
         {
@@ -203,16 +208,16 @@ export const bhaus_theme_dark: PrismTheme = {
         {
             types: ["type-hint", "type-declaration", "builtin"],
             style: {
-                color: color.bhaus.pastel_yellow,
+                color: color.bhaus.dark_yellow,
                 fontStyle: "normal",
             },
         },
         {
             types: ["functional-intent"],
             style: {
-                color: color.bhaus.pastel_yellow,
+                color: color.bhaus.dark_yellow,
                 fontStyle: "italic",
-                fontWeight: "bold"
+                fontWeight: "800"
             }
         }
     ],
