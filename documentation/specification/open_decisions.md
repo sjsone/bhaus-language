@@ -2,7 +2,8 @@
 
 ## Changes
 
-- Alias like `Int` for `Integer`
+> currently nothing
+
 
 ## Introductions
 
@@ -10,6 +11,10 @@
   - Trait (php)
   - AOP
 
+- `ENUM` ?
+- `READONLY`
+- `STATIC`
+
 ## Removals
 
-> currently nothing
+- Removing aliases. like `Int` for `Integer`
