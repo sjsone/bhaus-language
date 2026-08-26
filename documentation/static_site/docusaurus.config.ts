@@ -120,8 +120,9 @@ const config: Config = {
                 },
                 {
                     href: "https://github.com/sjsone/bhaus-language",
-                    label: "GitHub",
+                    className: 'header-github-link',
                     position: "right",
+                    'aria-label': 'GitHub repository',
                 },
             ],
         },

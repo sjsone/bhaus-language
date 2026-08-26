@@ -4,51 +4,80 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  position: relative;
-  overflow: hidden;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+    .heroBanner {
+        padding: 2rem;
+    }
 }
 
 .heroText {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 .heroLead {
   font-size: 1.1rem;
-  opacity: 0.9;
+  font-weight: 450;
 }
 
 .heroCode {
-  text-align: left;
+    text-align: left;
 }
 
 .heroCode > div {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 996px) {
-  .heroText {
-    margin-bottom: 2rem;
-  }
+    .heroText {
+        margin-bottom: 2rem;
+    }
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 @media screen and (max-width: 996px) {
-  .buttons {
-    justify-content: center;
-  }
+    .buttons {
+        justify-content: center;
+    }
+}
+
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 2rem;
+
+
+    .hero__logo {
+        width: 100%;
+        aspect-ratio: 1;
+        margin-right: 0rem;
+        display: none;
+    }
+
+    .hero__subtitle {
+        font-size: 3rem;
+        line-height: 2.75rem;
+
+        font-weight: bold;
+        font-family: var(--font-family-sora);
+
+        span {
+            font-size: 75%;
+            font-weight: normal;
+        }
+    }
+
 }

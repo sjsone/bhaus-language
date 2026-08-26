@@ -39,23 +39,19 @@ function HomepageHeader() {
       <div className="container">
         <div className="row">
           <div className={clsx("col col--6", styles.heroText)}>
-            <Heading as="h1" className="hero__title">
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                <img style={{ height: "9rem", marginRight: "0rem" }} src="/bhaus-language/img/logo.svg"></img>
-                {siteConfig.title}
-              </div>
-            </Heading>
-            <p className="hero__subtitle" style={{ lineHeight: "1.5rem" }}>
-              Architecture and Design
-              <br />
-              <span style={{ fontSize: "1.125rem" }}>for Software Engineering</span>
-            </p>
+            <div className={styles.hero__container}>
+              <img className={styles.hero__logo} src="/bhaus-language/img/logo.svg"></img>
+              <p className={styles.hero__subtitle}>
+                Architecture &amp; Design
+                <br />
+                <span>for Software Engineering</span>
+              </p>
+            </div>
+
+            <p className={styles.heroLead}>BHaus is a design language to keep crafting by hand in the era of LLMs and coding agents.</p>
             <p className={styles.heroLead}>
-              BHaus is a design language to keep programming by hand, in a world of LLMs and coding agents.
-            </p>
-            <p className={styles.heroLead}>
-              A <code>.bhaus</code> file defines the types, contracts and architecture of your system. It keeps the design precise, easy to compare and
-              ready for an LLM (or a teammate) to implement.
+              A <code>.bhaus</code> file defines types, contracts and architecture of your system.
+              <br /> It keeps the design precise, easy to compare and ready for an LLM (or a human) to implement.
             </p>
             <div className={styles.buttons}>
               <Link className="button button--secondary button--lg" to="/getting-started/quick-start">
