@@ -6,6 +6,9 @@ import Layout from "@theme/Layout";
 import CodeBlock from "@theme/CodeBlock";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
+import {
+  HtmlClassNameProvider,
+} from '@docusaurus/theme-common';
 
 import styles from "./index.module.css";
 
@@ -44,7 +47,7 @@ function HomepageHeader() {
               <p className={styles.hero__subtitle}>
                 Architecture &amp; Design
                 <br />
-                <span>for Software Engineering</span>
+                for Software Engineering
               </p>
             </div>
 
@@ -79,11 +82,17 @@ function HomepageHeader() {
 
 export default function Home(): ReactNode {
   return (
-    <Layout title="BHaus" description="BHaus is a design language for software systems. You write it by hand and models can read it.">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+    <HtmlClassNameProvider className={`bhaus-page-index`}>
+      <Layout
+        wrapperClassName="bhaus-primary"
+        title="BHaus"
+        description="BHaus is a design language for software systems. You write it by hand and models can read it."
+      >
+        <HomepageHeader />
+        <main>
+          <HomepageFeatures />
+        </main>
+      </Layout>
+    </HtmlClassNameProvider>
   );
 }
