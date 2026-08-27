@@ -60,22 +60,26 @@ an array, a `Bits<N>` or a [user-defined type](#user-defined-types), but it may 
 itself be optional or another union.
 
 ```bhaus
-PUBLIC id: Integer | String       # ✅ two simple types
-PUBLIC version: String | Array[Integer]   # ✅ simple type or array
+PUBLIC id: Integer | String       
+PUBLIC version: String | Array[Integer]  
 ```
 
 The restriction keeps unions easy to read. 
 
 > [!NOTE]
->  If you want three alternatives, the concept usually belongs in a [protocol](./protocols.md) or [class](./classes.md) hierarchy.
+>  If you want three alternatives, the concept usually belongs in a [`PROTOCOL`](./protocols.md) or [`CLASS`](./classes.md) hierarchy.
 
 ## User-defined types
 
 Any [contextual name](./document-structure.md#contextual-names-slash-paths) used
-where a type is expected refers to a type you declared elsewhere: a
-[struct](./structs.md), [class](./classes.md), [protocol](./protocols.md) or an
-[`EXTERN`](./modules.md#extern). No special syntax marks a user type. If a name is not
-a built-in simple type or a composer keyword, it is a reference by name.
+where a type is expected refers to a type you declared elsewhere: 
+- [`STRUCT`](./structs.md)
+- [`CLASS`](./classes.md)
+- [`PROTOCOL`](./protocols.md)
+- [`EXTERN`](./modules.md#extern)
+
+No special syntax marks a user type.     
+If a name is not a built-in simple type or a composer keyword, it is a reference by name.
 
 ```bhaus
 STRUCT Order:

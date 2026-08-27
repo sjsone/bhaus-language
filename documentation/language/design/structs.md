@@ -15,16 +15,14 @@ STRUCT Point:
     PUBLIC y: Integer
 ```
 
-A `STRUCT` declaration is the keyword, a
-[name](./document-structure.md#contextual-names-slash-paths), a colon and the
-members on the lines below. Give a member a struct type to nest structs. By
-convention the name starts with an upper-case letter, like every type in the
-language.
+A `STRUCT` declaration is the keyword, a [name](./document-structure.md#contextual-names-slash-paths), a colon and the members on the lines below.
+Give a member a struct type to nest structs. 
+By convention the name starts with an upper-case letter, like every type in the language.
 
 ## Members and visibility
 
-Every member of a structural type (struct, [protocol](./protocols.md) or
-[class](./classes.md)) begins with a **visibility** keyword. The next two pages reuse
+Every member of a structural type (struct, [`PROTOCOL`](./protocols.md) or
+[`CLASS`](./classes.md)) begins with a **visibility** keyword. The next two pages reuse
 this rule, so it is introduced here.
 
 | Keyword     | Reachable from                          |
@@ -71,6 +69,6 @@ here: `roles` is an array of strings and `manager` is optional, so it may be abs
 Named fields with precise, composable types are what a struct is for.
 
 > [!NOTE]
-> To attach behaviour to data, use a [class](./classes.md), which holds both
+> To attach behaviour to data, use a [`CLASS`](./classes.md), which holds both
 > properties and methods. Keep `STRUCT` for data on its own. The restriction tells a
 > reader that the type is state and nothing else.

@@ -51,7 +51,7 @@ FUNCTION totalArea(shapes: Array[Shape]): Float
 
 `totalArea` accepts circles or squares, as long as each one has an `area()`.
 
-Then a [class](./classes.md) can declare that it implements a protocol with the promise to
+Then a [`CLASS`](./classes.md) can declare that it implements a protocol with the promise to
 fulfill the contract:
 
 ```bhaus

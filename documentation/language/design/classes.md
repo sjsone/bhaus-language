@@ -6,8 +6,8 @@ description: CLASS declares an object type with properties, methods, inheritance
 
 # Classes
 
-A class is the largest of the three structural types. A [struct](./structs.md) holds
-only data and a [protocol](./protocols.md) holds only requirements. 
+A class is the largest of the three structural types. A [`STRUCT`](./structs.md) holds
+only data and a [`PROTOCOL`](./protocols.md) holds only requirements. 
 
 A class holds both properties and methods and it can sit in an inheritance hierarchy.
 

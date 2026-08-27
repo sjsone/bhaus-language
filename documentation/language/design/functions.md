@@ -48,8 +48,8 @@ parameters and the types can be anything, including
 
 ## Functional intents
 
-A declaration gives a function's shape. A **functional intent** gives its purpose. An
-intent is a single line beginning with `>` that describes what the body should do:
+A declaration gives a function's shape. A **functional intent** gives its purpose.     
+An intent is a single line beginning with `>` that describes what the body should do:
 
 ```bhaus
 FUNCTION calculateTotal(values: Array[Integer]): Integer
@@ -62,17 +62,19 @@ An intent is the specification of the body: a human writes it in plain language 
 a code generator or AI reads it to produce an implementation. It says what should
 happen and leaves out how.
 
-A functional intent MUST be written in **imperative mood**. Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates". For example, use `> return true if valid` not `> returns true if valid`.
+A functional intent MUST be written in **imperative mood**. 
+Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates".     
+For example: use `> return true if valid` not `> returns true if valid`.
 
 > [!NOTE]
-> An intent attaches to a body, meaning a function or a [method](./structs.md). It
-> differs from a comment (which starts with `#`) and from a document-level statement.
+> An intent attaches to a body, meaning a function or a [method](./structs.md).     
+> It differs from a comment (which starts with `#`).
 
 ## Functions inside types
 
 The `FUNCTION` keyword is only for standalone functions at the top level. When an
-operation belongs to a [struct](./structs.md), [protocol](./protocols.md) or
-[class](./classes.md), it becomes a method and drops the keyword. The visibility and
+operation belongs to a [`STRUCT`](./structs.md), [`PROTOCOL`](./protocols.md) or
+[`CLASS`](./classes.md), it becomes a method and drops the keyword. The visibility and
 the parentheses are enough to mark it as callable:
 
 ```bhaus

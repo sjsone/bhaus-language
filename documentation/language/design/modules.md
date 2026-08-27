@@ -27,17 +27,16 @@ further files of its own.
 The effect: every declaration in an included file becomes visible to the including
 file. A reference in one file can then resolve to a definition in another.
 
-```bhaus
-# base.bhaus
+```bhaus title="base.bhaus"
 VERSION 0.1
 
 PROTOCOL Base/Entity:
     PUBLIC getIdentifier(): UUID
 ```
 
-```bhaus
-# model.bhaus
+```bhaus title="model.bhaus"
 VERSION 0.1
+
 INCLUDE *
 
 CLASS Model IMPLEMENTS Base/Entity:
