@@ -1,20 +1,36 @@
 ---
 sidebar_position: 1
-description: Build bhaus-util from source and verify it works.
+description: Install bhaus-util from a pre-built release or build from source.
 ---
 
 # Installation
 
+## Pre-built binaries
+
+Download a pre-built binary from the [GitHub releases page](https://github.com/sjsone/bhaus-util/releases).
+Choose the archive for your platform (Linux, macOS, Windows) and architecture, extract it,
+and put the `bhaus-util` binary on your `PATH`.
+
+For example, on macOS:
+
+```bash
+# Download and extract the latest release
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_macos_amd64.tar.gz | tar xz
+
+# Move to a directory on your PATH
+mv bhaus-util /usr/local/bin/
+```
+
 ## From source
 
-Build the CLI from source. You will need [Go](https://go.dev) 1.24 or newer and `git`.
+Build the CLI from source. You will need [Go](https://go.dev) 1.27 or newer and `git`.
 
 ### Clone and build
 
 ```bash
 git clone https://github.com/sjsone/bhaus-util.git
 cd bhaus-util
-go build -o bin/bhaus-util ./cmd/cli
+go build -o bin/bhaus-util ./cmd/bhaus-util
 ```
 
 This produces a single `bhaus-util` binary at `bin/bhaus-util`. 
