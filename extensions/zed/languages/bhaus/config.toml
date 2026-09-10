@@ -2,3 +2,6 @@ name = "BHaus"
 grammar = "bhaus"
 path_suffixes = ["bhaus"]
 line_comments = ["# "]
+tab_size = 4
+hard_tabs = false
+increase_indent_pattern = "^\\s*(PROTOCOL|STRUCT|CLASS|SYSTEM|CONTAINER|COMPONENT)\\b.*:\\s*(#.*)?$"

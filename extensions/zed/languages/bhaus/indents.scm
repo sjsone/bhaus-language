@@ -1,5 +1,1 @@
-; Indentation for BHaus
-
-(class_declaration ":" @end) @indent
-(protocol_declaration ":" @end) @indent
-(struct_declaration ":" @end) @indent
+; Block indentation is defined once by increase_indent_pattern in config.toml.
