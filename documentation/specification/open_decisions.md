@@ -4,14 +4,13 @@
 
 > currently nothing
 
-
 ## Introductions
 
-- The concept of modularity
-  - Trait (php)
-  - AOP
-
-- `ENUM` ?
+- the idea of TODOs as first class citizens
+- `Iterable[]`
+- Trait (php)
+- AOP
+- `ENUM`
 - `READONLY`
 - `STATIC`
 
