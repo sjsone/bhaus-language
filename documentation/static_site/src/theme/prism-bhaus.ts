@@ -143,6 +143,14 @@ export const bhaus_theme_light: PrismTheme = {
                 fontStyle: "italic",
                 fontWeight: "800"
             }
+        },
+        {
+            types: ["function"],
+            style: {
+                color: color.bhaus.purple,
+                // fontStyle: "italic",
+                fontWeight: "800"
+            }
         }
     ],
 };
