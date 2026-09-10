@@ -70,7 +70,7 @@ function HomepageHeader() {
               {SAMPLE_SOURCE}
             </CodeBlock>
             <br />
-            <CodeBlock language="php" title="Domain/Entity/User.php">
+            <CodeBlock language="php" title="Domain/User.php">
               {SAMPLE_TARGET_PHP}
             </CodeBlock>
           </div>
