@@ -16,8 +16,8 @@ const config: Config = {
         v4: true, // Improve compatibility with the upcoming Docusaurus v4
     },
 
-    url: "https://sjsone.github.io/",
-    baseUrl: "/bhaus-language",
+    url: "https://bhaus.design/",
+    baseUrl: "/",
 
     trailingSlash: false,
 
