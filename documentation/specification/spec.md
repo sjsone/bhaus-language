@@ -368,10 +368,18 @@ FUNCTION calculateTotal(values: Array[Integer]): Integer
 
 ### 7.2 Semantics
 
-The intend documents the intended behavior of the function or method.  
-The intend serves as a specification for code-generation and AI tooling.
+The intent documents the intended behavior of the function or method.
+The intent serves as a specification for code-generation and AI tooling.
 
 A functional intent MUST be written in **imperative mood**. Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates". For example, use `> return true if valid` not `> returns true if valid`.
+
+
+> [!IMPORTANT]
+> A high intent count indicates that the function or method may be too large.   
+> - five through nine intents produce an `intent-count` warning;
+> - ten or more intents produce an `intent-count` error instead of the warning.
+>     
+> Its behaviour SHOULD be divided into additional functions or methods.
 
 ---
 

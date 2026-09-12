@@ -56,6 +56,13 @@ check on their own.
 | `naming` | Type names should be `Uppercase`; function/method names `lowercase` |
 | `structure` | `VERSION` must be present and be the first declaration |
 | `unknown-type` | A type annotation uses the built-in `Unknown` type |
+| `intent-count` | A function or method has 5–9 intents (warning) or 10 or more (error) and may be too large |
+
+Lint findings are useful feedback while you iterate on a design; an intermediate
+`.bhaus` file does not need to stay clean after every edit. Resolve the findings
+before scaffolding or using the design to update existing code. For an
+`intent-count` finding, move some behaviour into one or more additional functions
+or methods.
 
 Pass `--format json` for machine-readable output. Use this to connect `lint`
 to an editor or a CI step:

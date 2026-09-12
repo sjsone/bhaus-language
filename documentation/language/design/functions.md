@@ -57,10 +57,8 @@ FUNCTION calculateTotal(values: Array[Integer]): Integer
     > return the sum
 ```
 
-Attach as many intent lines as you need. Each is one step or clause of the behaviour.
-An intent is the specification of the body: a human writes it in plain language and
-a code generator or AI reads it to produce an implementation. It says what should
-happen and leaves out how.
+A high count suggests that the function or method is too large. 
+Move some of its behaviour into one or more additional functions or methods. 
 
 A functional intent MUST be written in **imperative mood**. 
 Use commands like "return", "calculate", "validate" rather than present-tense descriptions like "returns" or "calculates".     

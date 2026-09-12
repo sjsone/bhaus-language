@@ -15,11 +15,6 @@
 - `READONLY`
 - `STATIC`
 
-### Behaviour
-
-- "a lot of" functional intents MUST diagnose as a warning
-- "too many" functional intents SHOULD diagnose as an error
-
 ## Removals
 
 - Removing aliases. like `Int` for `Integer`
