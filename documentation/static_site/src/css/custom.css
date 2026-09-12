@@ -128,6 +128,26 @@ h3 {
         font-family: var(--font-family-sora);
         font-weight: bold;
     }
+
+    article {
+        a {
+            font-family: var(--font-family-sora);
+            font-weight: 600;
+            text-decoration: none;
+
+            /*&::before {
+                content: "→";
+                display: inline-block;
+            }*/
+
+            &:hover {
+                text-decoration: underline;
+                text-decoration-thickness: 0.125rem;
+            }
+        }
+    }
+
+
 }
 
 .navbar__search-input {
