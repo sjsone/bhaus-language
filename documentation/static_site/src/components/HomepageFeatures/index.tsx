@@ -40,7 +40,7 @@ const FeatureList: FeatureItem[] = [
     icon: "⚙",
     description: (
       <>
-        The <a href="/"><code>bhaus-util</code></a> command line tool gives you a linter, language server, scaffolding generator and more to keep you productive.
+        The <a target="_blank" href="https://github.com/sjsone/bhaus-util"><code>bhaus-util</code></a> command line tool gives you a linter, language server, scaffolding generator and more to keep you productive.
       </>
     ),
   },
