@@ -65,6 +65,10 @@ a code:hover {
 
 .navbar__title {
     font-size: 2rem;
+
+    &:hover {
+        color: var(--ifm-color-secondary);
+    }
 }
 
 .navbar__link:hover,
