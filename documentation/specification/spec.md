@@ -90,7 +90,7 @@ A BHaus document is built from:
 BHaus has **no** string, number or boolean _value_ literals: it describes types, not values.
 
 > [!NOTE]
-> Values may be hinted at by [§7 functional intents](#7-functional-intents) and comments.
+> Values may be hinted at by [§7 functional intents](#7-functional-intents) and [§2.2 comments](#22-comments).
 
 ### 2.2 Comments
 
@@ -125,7 +125,7 @@ _Or_ a **path**: two or more identifiers joined by `/`.
 Every path segment MUST be a valid identifier. A segment MUST NOT be an arity or
 index suffix.
 
-Contextual names are used for: struct/protocol/class names, `EXTENDS`/`IMPLEMENTS`
+Contextual names are used for: `STRUCT`/`PROTOCOL`/`CLASS` names, `EXTENDS`/`IMPLEMENTS`
 targets, function names, `EXTERN` targets and user-defined type references.
 
 For example: `Engine/DimensionalPoint/2` is not valid. `2` is not a valid identifier.
