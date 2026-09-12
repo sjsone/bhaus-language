@@ -11,14 +11,34 @@ Download a pre-built binary from the [GitHub releases page](https://github.com/s
 Choose the archive for your platform (Linux, macOS, Windows) and architecture, extract it,
 and put the `bhaus-util` binary on your `PATH`.
 
-For example, on macOS:
+### macOS
 
 ```bash
-# Download and extract the latest release
-curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_macos_amd64.tar.gz | tar xz
+# Apple Silicon (arm64)
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_macos_arm64.tar.gz | tar xz -C /usr/local/bin
 
-# Move to a directory on your PATH
-mv bhaus-util /usr/local/bin/
+# LEGACY Intel (amd64)
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_macos_amd64.tar.gz | tar xz -C /usr/local/bin
+```
+
+### Linux
+
+```bash
+# x86_64 / amd64
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_linux_amd64.tar.gz | sudo tar xz -C /usr/local/bin
+
+# ARM64
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_linux_arm64.tar.gz | sudo tar xz -C /usr/local/bin
+```
+
+### Windows (WSL)
+
+```bash
+# x86_64 / amd64
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_v0.0.1_windows_amd64.zip -o bhaus-util.zip && unzip -o bhaus-util.zip -d /usr/local/bin && rm bhaus-util.zip
+
+# ARM64
+curl -L https://github.com/sjsone/bhaus-util/releases/latest/download/bhaus-util_v0.0.1_windows_arm64.zip -o bhaus-util.zip && unzip -o bhaus-util.zip -d /usr/local/bin && rm bhaus-util.zip
 ```
 
 ## From source
@@ -33,7 +53,7 @@ cd bhaus-util
 go build -o bin/bhaus-util ./cmd/bhaus-util
 ```
 
-This produces a single `bhaus-util` binary at `bin/bhaus-util`. 
+This produces a single `bhaus-util` binary at `bin/bhaus-util`.
 Put it on your `PATH` or reference it with a relative path for the rest of this guide.
 
 ### Verify it works
@@ -72,5 +92,5 @@ Scaffold languages: [go php typescript] (plus any YAML defs found in --template-
 Run "bhaus-util <command> --help" for flags, defaults and per-command examples.
 ```
 
-`ls` starts the language server over stdio. 
+`ls` starts the language server over stdio.
 The two commands you will use directly are `lint` and `scaffold`.
